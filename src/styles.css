@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss';
+
+:root {
+  --primary: #083d9b;
+  --primary-gradient: linear-gradient(95.71deg, #003d9b 0%, #0052cc 100%);
+  --primary-container: #0052cc;
+  --surface-highest: #d7e2ff;
+  --surface-medium: #737685;
+  --surface-low: #f1f3ff;
+  --background: #f9f9ff;
+
+  --slate-dark: #041b3c;
+  --slate-medium: #4f5f7b;
+  --slate-light: #c3c6d6;
+
+  --success: #6ee7b7;
+  --error: #c5221f;
+  --warning: #fbbc04;
+
+  --font-display-lg-size: 3.5rem;
+  --font-display-lg-weight: 700;
+
+  --font-headline-lg-size: 2.5rem;
+  --font-headline-lg-weight: 600;
+
+  --font-title-md-size: 1.25rem;
+  --font-title-md-weight: 500;
+
+  --font-body-md-size: 1rem;
+  --font-body-md-weight: 400;
+
+  --font-label-sm-size: 0.75rem;
+  --font-label-sm-weight: 500;
+}
