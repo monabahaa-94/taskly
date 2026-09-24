@@ -33,3 +33,10 @@
   --font-label-sm-size: 0.75rem;
   --font-label-sm-weight: 500;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+html,
+body {
+  font-family: 'Inter', sans-serif;
+}
