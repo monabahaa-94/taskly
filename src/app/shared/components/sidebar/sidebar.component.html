@@ -1,0 +1,201 @@
+<section
+  class="h-full bg-white border-r border-gray-200 flex flex-col p-4 shrink-0 transition-all duration-300"
+  [class.w-64]="!iscollapsed"
+  [class.w-20]="iscollapsed"
+>
+  <div class="mb-6 px-2">
+    @if (!iscollapsed) {
+      <div class="w-full flex items-center gap-2">
+        <div class="w-8 h-8 rounded-lg flex items-center justify-center">
+          <img src="/image/Icon.png" alt="logo icon" class="h-5 w-5" />
+        </div>
+
+        <span class="font-bold tracking-wider text-lg text-gray-800"> TASKLY </span>
+      </div>
+    } @else {
+      <div class="text-center text-xl font-bold text-gray-800 flex justify-center">
+        <div class="w-8 h-8 rounded-lg flex items-center justify-center">
+          <img src="/image/Icon.png" alt="logo icon" class="h-5 w-5" />
+        </div>
+      </div>
+    }
+  </div>
+
+  <nav class="flex flex-col gap-1 overflow-visible">
+    <a
+      href="#"
+      class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-blue-50 text-blue-600 font-medium"
+    >
+      <span>
+        <img src="/image/folderIcon.png" alt="foldericon" class="h-5 w-5" />
+      </span>
+
+      @if (!iscollapsed) {
+        <span>Projects</span>
+      }
+    </a>
+
+    <a
+      href="#"
+      class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-100 font-medium"
+    >
+      <span>
+        <img src="/image/chartIcon.png" alt="chart icon" class="h-5 w-5" />
+      </span>
+
+      @if (!iscollapsed) {
+        <span>My Statistics</span>
+      }
+    </a>
+
+    @if (!iscollapsed) {
+      <div class="mt-4 pt-4 border border-gray-100 flex flex-col gap-1">
+        <button
+          type="button"
+          (click)="toggleproject()"
+          class="w-full flex items-center justify-between px-3 py-2 rounded-lg bg-blue-50/60 text-blue-900 font-medium text-sm"
+        >
+          <div class="flex items-center gap-3 min-w-0">
+            <span>
+              <img src="/image/folderIcon.png" alt="foldericon" class="h-5 w-5" />
+            </span>
+
+            <span> Active Project Na...</span>
+          </div>
+
+          <span class="shrink-0">
+            <img src="/image/popuppopdownIcon.png" alt=" pop up pop down icon" class="h-5 w-5" />
+          </span>
+        </button>
+
+        @if (isprojectopen) {
+          <div class="flex flex-col pl-4 gap-1 mt-1">
+            <a
+              href="#"
+              class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 hover:bg-gray-50 text-sm"
+            >
+              <span><img src="/image/epicIcon.png" alt="epic icon" class="h-5 w-5" /></span>
+              <span>Epics</span>
+            </a>
+
+            <a
+              href="#"
+              class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 hover:bg-gray-50 text-sm"
+            >
+              <span><img src="/image/tasksIcon.png" alt="tasks icon" class="h-5 w-5" /></span>
+              <span>Tasks</span>
+            </a>
+
+            <a
+              href="#"
+              class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 hover:bg-gray-50 text-sm"
+            >
+              <span><img src="/image/memberIcon.png" alt="member icon" class="h-5 w-5" /></span>
+              <span>Members</span>
+            </a>
+
+            <a
+              href="#"
+              class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 hover:bg-gray-50 text-sm"
+            >
+              <span><img src="/image/detailsIcon.png" alt="details icon" class="h-5 w-5" /></span>
+              <span>Details</span>
+            </a>
+          </div>
+        }
+      </div>
+    } @else {
+      <div class="relative mt-4 pt-4 border-t border-gray-100">
+        <button
+          type="button"
+          (click)="toggleprojectpopup()"
+          class="w-full flex items-center justify-center p-3 rounded-lg text-gray-600 hover:bg-blue-50"
+        >
+          <img src="/image/folderIcon.png" alt="folder icon" class="h-5 w-5" />
+        </button>
+
+        @if (isprojectpopupopen) {
+          <div
+            class="absolute left-full top-0 ml-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg p-2 z-50"
+          >
+            <p class="px-3 py-2 text-sm font-semibold text-gray-800 border-b border-gray-100">
+              Active Project
+            </p>
+
+            <a
+              href="#"
+              class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 hover:bg-gray-50 text-sm"
+            >
+              <span><img src="/image/epicIcon.png" alt="epic icon" class="h-5 w-5" /></span>
+              <span>Epics</span>
+            </a>
+
+            <a
+              href="#"
+              class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 hover:bg-gray-50 text-sm"
+            >
+              <span><img src="/image/tasksIcon.png" alt="tasks icon" class="h-5 w-5" /></span>
+              <span>Tasks</span>
+            </a>
+
+            <a
+              href="#"
+              class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 hover:bg-gray-50 text-sm"
+            >
+              <span><img src="/image/memberIcon.png" alt="member icon" class="h-5 w-5" /></span>
+              <span>Members</span>
+            </a>
+
+            <a
+              href="#"
+              class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 hover:bg-gray-50 text-sm"
+            >
+              <span><img src="/image/detailsIcon.png" alt="details icon" class="h-5 w-5" /></span>
+              <span>Details</span>
+            </a>
+          </div>
+        }
+      </div>
+    }
+  </nav>
+
+  <div class="mt-auto pt-4 border-t border-gray-100">
+    <button
+      type="button"
+      (click)="logoutdata()"
+      [disabled]="isloggingout"
+      class="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-gray-100"
+    >
+      <span>
+        <img src="/image/logoutIcon.png" alt="logout icon" class="h-5 w-5" />
+      </span>
+
+      @if (!iscollapsed) {
+        @if (isloggingout) {
+          <span>Logging out...</span>
+        } @else {
+          <span>Logout</span>
+        }
+      }
+    </button>
+    @if (logouterror) {
+      <p class="text-sm text-red-500">
+        {{ logouterror }}
+      </p>
+    }
+
+    <button
+      type="button"
+      (click)="togglesidebar()"
+      class="w-full mt-2 flex items-center justify-center gap-2 py-2 px-3 rounded-lg border border-gray-200 text-sm text-gray-600 hover:bg-gray-50"
+    >
+      <span>
+        <img src="/image/collapceIcon.png" alt="collapse icon" class="h-5 w-5" />
+      </span>
+
+      @if (!iscollapsed) {
+        <span>Collapse</span>
+      }
+    </button>
+  </div>
+</section>

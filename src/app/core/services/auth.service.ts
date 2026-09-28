@@ -33,6 +33,15 @@ return this.httpClient.post(environment.baseurl+'/auth/v1/token?grant_type=refre
       },
     })
   }
+  logout():Observable<any>{
+    return this.httpClient.post(environment.baseurl+'/auth/v1/logout',{},{
+      headers: {
+        apikey: environment.apikey,
+        Authorization:`Bearer ${this.getaccesstoken()}`,
+        'Content-Type':'application/json'
+      },
+    })
+  }
   getaccesstoken(): string {
   return this.cookieService.get('access_token');
 }
@@ -45,6 +54,20 @@ getexpiresat(): string {
 setaccesstoken(token: string): void {
     this.cookieService.set('access_token', token);
   }
+getuserinfo():Observable<any>{
+  return this.httpClient.get(environment.baseurl+'/auth/v1/user',{
+      headers: {
+        apikey: environment.apikey,
+        Authorization:`Bearer ${this.getaccesstoken()}`,
+        'Content-Type':'application/json'
+      },
+    })
+}
+clearauthdata(): void {
+  this.cookieService.delete('access_token');
+  this.cookieService.delete('refresh_token');
+  this.cookieService.delete('expires_at');
+}
 }
 
 
